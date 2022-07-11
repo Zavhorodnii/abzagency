@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\SPAController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\API\AuthController;
+use \App\Http\Controllers\PositionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +24,7 @@ Route::post('/login', [AuthController::class, 'loginUser']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::resource('position', PositionController::class);
 });
 
