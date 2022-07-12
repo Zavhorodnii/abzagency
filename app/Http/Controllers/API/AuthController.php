@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use function response;
 
 class AuthController extends Controller
 {
@@ -22,8 +23,6 @@ class AuthController extends Controller
                     'email' => 'required|email|unique:users,email',
                     'password' => 'required|confirmed',
                 ]);
-
-
 
             if($validateUser->fails()){
                 return response()->json([
@@ -47,7 +46,6 @@ class AuthController extends Controller
 
 
         } catch (\Throwable $throwable){
-
             return response()->json([
                 'status' => false,
                 'message' => $throwable->getMessage(),

@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user',
     [SPAController::class, 'index']
 );
 
-Route::get('/{any}', [SPAController::class, 'index'])->where('any', '.*');
+//Route::get('/{any}', [SPAController::class, 'index'])->where('any', '.*');
