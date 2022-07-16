@@ -9,7 +9,7 @@ const actions = {
         console.log('loginUser vuex')
         return new Promise((resolve) => {
             axiosInstance.get('/sanctum/csrf-cookie').then(response => {
-                axiosInstance.post('/api/login', {
+                axiosInstance.post('/api/v1/login', {
                     email: user.email,
                     password: user.password
                 })
@@ -33,7 +33,7 @@ const actions = {
     registrationUser({}, user) {
         return new Promise((resolve) => {
             axiosInstance.get('/sanctum/csrf-cookie').then(response => {
-                axiosInstance.post('/api/registration', {
+                axiosInstance.post('/api/v1/registration', {
                     name: user.name,
                     email: user.email,
                     password: user.password,
@@ -56,7 +56,7 @@ const actions = {
 
     logout() {
         console.log('logout')
-        axiosInstance.post('/api/logout')
+        axiosInstance.post('/api/v1/logout')
             .then(response => {
                 console.log(response)
                 localStorage.removeItem('x-token')

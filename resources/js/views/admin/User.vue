@@ -10,9 +10,6 @@
 
 export default {
     name: "User",
-    mounted() {
-        this.getData()
-    },
     methods: {
         logout(){
             this.$store.dispatch('logout', this.user);
