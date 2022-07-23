@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
+ * @extends Factory
  */
 class EmployeeFactory extends Factory
 {
@@ -32,7 +32,8 @@ class EmployeeFactory extends Factory
             'salary' => $this->faker->numberBetween(0, 500000),
             'image' => FakerImage::image($filepath,300,300, 'people', false,),
 //            'image' => 0,
-            'head' => CheckHead::checkHead(),
+//            'head' => CheckHead::checkHead(),
+            'head' => null,
             'admin_created_id' => $this->faker->numberBetween(1, User::all()->count()),
             'admin_updated_id' => $this->faker->numberBetween(1, User::all()->count()),
         ];

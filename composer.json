@@ -27,7 +27,8 @@
         },
         "files": [
             "app/Helpers/Admin/FakerImage.php",
-            "app/Helpers/Admin/CheckHead.php"
+            "app/Helpers/Admin/CheckHead.php",
+            "app/Helpers/Admin/UploadFileHelper.php"
         ]
     },
     "autoload-dev": {

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +18,9 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->foreignId('positions_id')
-                ->constrained();
+                ->nullable()
+                ->constrained()
+                ->onDelete('set null');
             $table->date('date_of_employment');
             $table->string('phone');
             $table->string('email')->unique();
@@ -27,7 +30,7 @@ return new class extends Migration
                 ->nullable()
                 ->references('id')
                 ->on('employees')
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->foreignId('admin_created_id')->references('id')->on('users');
             $table->foreignId('admin_updated_id')->references('id')->on('users');
             $table->timestamps();

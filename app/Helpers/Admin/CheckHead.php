@@ -6,6 +6,10 @@ use App\Models\Employee;
 
 class CheckHead
 {
+    /**
+     * Create in faker
+     * @return int|null
+     */
     public static function checkHead() {
         $count = Employee::all()->count();
         try {
@@ -13,7 +17,7 @@ class CheckHead
                 return null;
             do {
                 $id = fake()->numberBetween(1, $count);
-                $status = self::check($id, 0);
+                $status = self::check($id);
             } while ( !$status );
         } catch (Exception $e) {
             $id = null;
@@ -21,7 +25,13 @@ class CheckHead
         return $id;
     }
 
-    public static function check($id, $deep) : bool {
+    /**
+     * Check Head by id
+     * @param int $id
+     * @param int $deep
+     * @return bool
+     */
+    public static function check(int $id, int $deep=0) : bool {
         $item = Employee::where('id', $id)->value('head');
         if ( $deep < 5 ) {
             if ($item == null) {

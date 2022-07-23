@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\v1\AuthController;
 use App\Http\Controllers\API\v1\PositionController;
+use App\Http\Controllers\API\v1\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,9 @@ Route::post('/login', [AuthController::class, 'loginUser']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::resource(
-        'position', PositionController::class
-    );
+    Route::resources([
+        'position' => PositionController::class,
+        'employee' => EmployeeController::class,
+    ]);
 });
 
