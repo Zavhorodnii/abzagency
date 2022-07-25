@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Helpers\Admin\CheckHead;
+use App\Helpers\Admin\ImageControlHelper;
 use App\Helpers\Admin\UploadFileHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeStoreRequest;
 use App\Http\Requests\PositionUpdateRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
 {
@@ -24,7 +23,12 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return EmployeeResource::collection(Employee::all());
+//        $fields = EmployeeResource::collection(Employee::all());
+//        $fields = ImageControlHelper::getImage300( $fields );
+
+        $fields = ImageControlHelper::getArrayObjectImage300( Employee::all() );
+        $fields = EmployeeResource::collection( $fields );
+        return $fields;
     }
 
     /**

@@ -27,11 +27,11 @@ class Employee extends Model
     /**
      * @return Attribute
      */
-    protected function image() : Attribute {
-        return Attribute::make(
-            get: fn($value) => Storage::url('images/' . $value),
-        );
-    }
+//    protected function image() : Attribute {
+//        return Attribute::make(
+//            get: fn($value) => Storage::url('images/' . $value),
+//        );
+//    }
 
     /**
      * @return Attribute
