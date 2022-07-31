@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Storage;
 
 class Employee extends Model
@@ -42,4 +43,9 @@ class Employee extends Model
             set: fn($value) => str_replace('+', '', $value)
         );
     }
+
+    public function position() : HasOne {
+        return $this->hasOne(Position::class, 'id', 'positions_id');
+    }
+
 }

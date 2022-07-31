@@ -1,8 +1,6 @@
 <template>
 
-    <Button  @click.prevent="logout">Logout</Button>
-
-    <h1>User</h1>
+    <router-view></router-view>
 
 </template>
 
@@ -10,11 +8,6 @@
 
 export default {
     name: "User",
-    methods: {
-        logout(){
-            this.$store.dispatch('logout', this.user);
-        },
-    }
 }
 </script>
 

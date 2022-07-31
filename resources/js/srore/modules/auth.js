@@ -16,7 +16,7 @@ const actions = {
                     .then(response => {
                         if (response.data) {
                             localStorage.setItem('x-token', response.config.headers['X-XSRF-TOKEN'])
-                            window.location.replace("/user")
+                            window.location.replace("/user/dashboard")
                             // console.log(response)
                         }
                     }) .catch((error) => {
@@ -42,7 +42,7 @@ const actions = {
                     .then(response => {
                         if (response.data) {
                             localStorage.setItem('x-token', response.config.headers['X-XSRF-TOKEN'])
-                            window.location.replace("/user")
+                            window.location.replace("/user/dashboard")
                             // console.log(response)
                         }
                     }) .catch((error) => {

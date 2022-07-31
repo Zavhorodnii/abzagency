@@ -19,7 +19,7 @@ class EmployeeResource extends JsonResource
             'id' => $this->id,
             'image' => $this->image,
             'full_name' => $this->full_name,
-            'positions_id' => Position::where('id', $this->positions_id)->value('title') ,
+            'position' => $this->position->title ,
             'date_of_employment' => $this->date_of_employment,
             'phone' => $this->phone,
             'email' => $this->email,
