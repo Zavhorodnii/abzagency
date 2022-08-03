@@ -34,8 +34,6 @@
 </div>
 <!-- ./wrapper -->
 
-@vite('resources/js/app.js')
-
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 @vite('public/plugins/jquery/jquery.min.js')
@@ -56,8 +54,14 @@
 @vite('public/plugins/chart.js/Chart.min.js')
 
 <!-- AdminLTE for demo purposes -->
-@vite('public/dist/js/demo.js')
+{{--@vite('public/dist/js/demo.js')--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-@vite('public/dist/js/pages/dashboard2.js')
+{{--@vite('public/dist/js/pages/dashboard2.js')--}}
+
+@vite('public/plugins/toastr/toastr.min.css')
+@vite('public/plugins/toastr/toastr.min.js')
+
+@vite('resources/js/app.js')
+
 </body>
 </html>

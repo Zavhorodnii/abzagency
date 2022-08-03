@@ -16,7 +16,11 @@ class PositionController extends Controller
      */
     public function index()
     {
-        return PositionResource::collection(Position::all());
+        $paginate = request('paginate', 10);
+        $search = request('q', '');
+
+        return PositionResource::collection(Position::search(trim($search))
+            ->paginate( $paginate ));
     }
 
     /**

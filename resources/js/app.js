@@ -7,12 +7,15 @@ import router from "./router/router";
 import vuetify from "./vuetify/vuetify";
 import components from './views/UI';
 import store from "./srore"
+import LaravelVuePagination from 'laravel-vue-pagination';
 
 const app = createApp({})
 
 components.forEach(components => {
-    app.component(components.name, components);
+    (components.name, components);
 });
+
+app.component('Pagination', LaravelVuePagination)
 
 app
     .use(router)

@@ -60,7 +60,7 @@ const actions = {
             .then(response => {
                 console.log(response)
                 localStorage.removeItem('x-token')
-                window.location.replace("/")
+                window.location.replace("/login")
 
             })
     }

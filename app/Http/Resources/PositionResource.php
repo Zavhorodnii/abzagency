@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Nette\Utils\DateTime;
 
 class PositionResource extends JsonResource
 {
@@ -17,7 +18,7 @@ class PositionResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'updated_at' => $this->updated_at,
+            'updated_at' => $this->updated_at->format('d.m.y'),
         ];
     }
 }

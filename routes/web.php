@@ -22,5 +22,5 @@ Route::prefix('user')->middleware('auth:sanctum')->group( function () {
     Route::get('/', [SPAController::class, 'index']);
 });
 
-Route::get('/user/login', [SPAController::class, 'index'])->name('login');
+Route::get('/login', [SPAController::class, 'index'])->name('login');
 Route::get('/{any}', [SPAController::class, 'index'])->where('any', '.*');

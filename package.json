@@ -7,6 +7,7 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "@vitejs/plugin-vue": "^2.3.3",
+    "laravel-vue-pagination": "^3.0.0",
     "roboto-fontface": "*",
     "vue": "^3.2.37",
     "vue-router": "^4.1.1",

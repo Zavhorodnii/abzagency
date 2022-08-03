@@ -32,9 +32,9 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" @click.prevent="logout" role="button">
+                <button class="nav-link" @click.prevent="logout">
                     <i class="fas fa-solid fa-right-from-bracket"></i>
-                </a>
+                </button>
             </li>
         </ul>
     </nav>

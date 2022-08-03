@@ -53,21 +53,21 @@ const routes = [
                     },
                 ],
             },
-            {
-                path: 'login',
-                name: 'login',
-                component: Login
-            },
-            {
-                path: 'registration',
-                name: 'registration',
-                component: Registration
-            },
         ],
     },
     {
         path: '/user',
-        redirect: { name: 'dashboard' }
+        redirect: { name: 'dashboard_index' }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
+    },
+    {
+        path: '/registration',
+        name: 'registration',
+        component: Registration
     },
 
 ]
@@ -82,17 +82,30 @@ router.beforeEach((to, from, next) => {
     const token = localStorage.getItem('x-token')
 
     if(!token) {
-        if (to.name === 'login' || to.name === 'registration') {
-            return next()
-        } else if (to.name === 'dashboard') {
-            return next ({
-                name: 'login'
-            })
+
+        let to_pattern = new RegExp('/user/(.+)');
+        let from_pattern = new RegExp('/user(.+)');
+
+        let match = to_pattern.exec(to.path);
+        if(match !== null ) {
+            if(from_pattern.exec(from.path) === null) {
+                router.push('/login');
+            }
         }
+
+        return next();
+
+        // if (to.name === 'login' || to.name === 'registration') {
+        //     return next()
+        // } else if (to.name === 'dashboard') {
+        //     return next ({
+        //         name: 'login'
+        //     })
+        // }
     }
     if (to.name === 'login' || to.name === 'registration' && token) {
         return next({
-            name: 'dashboard'
+            name: 'dashboard_index'
         })
     }
     next()

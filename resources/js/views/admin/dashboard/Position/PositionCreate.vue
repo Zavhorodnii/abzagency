@@ -26,7 +26,24 @@
 
 <script>
 export default {
-    name: "PositionCreate"
+    name: "PositionCreate",
+
+    methods: {
+        hideCreateButtonControl(){
+            this.$store.dispatch('hidePositionAdd')
+        },
+        showCreateButtonControl(){
+           this.$store.dispatch('showPositionAdd')
+        },
+    },
+    mounted () {
+        this.hideCreateButtonControl()
+    },
+
+    unmounted() {
+        this.showCreateButtonControl()
+    }
+
 }
 </script>
 
